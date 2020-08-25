@@ -15,6 +15,8 @@ Configuring vim and bash **should work** on any system.
 1. Download this repository in any directory of your choice.
 2. Once downloaded, enter into this project: `cd dev-config-files`
 3. Run the shell script `./jasios_config.sh`.
+  - **If this script failed to run, it's most likely do to your permission settings**
+    - Running `chmod u+x jasios_config.sh` in your terminal should solve the issue.
   - This script has multiple options that can be set using args `--`
     - To install everything (configurations, programming languages, and corresponding IDE's), run `./jasios_config.sh --all`.
     - To just install the vim configuration run `./jasios_config.sh --vim` in your terminal.
