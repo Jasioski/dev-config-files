@@ -3,6 +3,11 @@
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab "Make tab button insert 4 spaces
 set number "Make line numbers appear
 
+" Enable syntax highlighting
+if !exists("g:syntax_on") " Safeguard to prevent multiple calls (prevents the breaks that sometimes occur if both syntax on and enable are used)
+    syntax enable
+endif
+
 "" Searching enhancements
 set hlsearch "Enable search highlighting
 set ignorecase "Ignore case when searching
