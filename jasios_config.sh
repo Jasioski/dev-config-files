@@ -33,20 +33,22 @@ elif [[ "$arg" == "--help" ]]
 then 
     echo "Help section:"
     echo "Run valid args like this: (./jasios_config.sh --arg)"
+    echo "To setup config files (bash, vim) use:                                        --config"
     echo "To setup BashRC use:                                                          --bash"
     echo "To setup VimRC use:                                                           --vim"
     echo "To install coding languages, IDE's, and helpful coding Software like git use: --code"
     echo "To install all above in 1 go use:                                             --all"
 
 else
-    if [[ "$arg" != "--bash" && "$arg" != "--vim" && "$arg" != "--code" && "$arg" != "--all" ]]
+    if [[ "$arg" != "--bash" && "$arg" != "--vim" && "$arg" != "--code" && "$arg" != "--all" && "$arg" != "--config" ]]
     then
         echo "Not a valid arg..."
         echo "Too see a valid list of commands please use: --help (./jasios_config.sh --help)"
     fi
 
     echo "Configuring machine for Jasio's setup:"
-    if [[ "$arg" == "--bash" || "$arg" == "--all" ]]
+
+    if [[ "$arg" == "--bash" || "$arg" == "--all" || "$arg" == "--config" ]]
     then
         ### print out a message to tell user what is being added
         echo "  Configuring BashRC (~/.bashrc)"
@@ -57,7 +59,7 @@ else
         echo "    -Done!"
     fi
 
-    if [[ "$arg" == "--vim" || "$arg" == "--all" ]]
+    if [[ "$arg" == "--vim" || "$arg" == "--all" || "$arg" == "--config" ]]
     then
         ### print out a message to tell user what is being added
         echo "  Configuring VimRC (~/.vimrc)"
