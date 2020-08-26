@@ -27,12 +27,12 @@ if [[ "$2" != "" ]]
 then
     echo "Too many args..."
     echo "Please enter 1 argument only!"
-    echo "Too see a valid list of args please use: --help (./jasios_config.sh --help)"
+    echo "Too see a valid list of args please use: --help (./jasio_setup.sh --help)"
 
 elif [[ "$arg" == "--help" ]]
 then 
     echo "Help section:"
-    echo "Run valid args like this: (./jasios_config.sh --arg)"
+    echo "Run valid args like this: (./jasio_setup.sh --arg)"
     echo "To setup config files (bash, vim) use:                                        --config"
     echo "To setup BashRC use:                                                          --bash"
     echo "To setup VimRC use:                                                           --vim"
@@ -43,7 +43,7 @@ else
     if [[ "$arg" != "--bash" && "$arg" != "--vim" && "$arg" != "--code" && "$arg" != "--all" && "$arg" != "--config" ]]
     then
         echo "Not a valid arg..."
-        echo "Too see a valid list of commands please use: --help (./jasios_config.sh --help)"
+        echo "Too see a valid list of commands please use: --help (./jasio_setup.sh --help)"
     fi
 
     echo "Configuring machine for Jasio's setup:"
