@@ -1,18 +1,43 @@
 #!/bin/bash
+# Generic contains function declaration
+function contains() {
+    local n=$#
+    local value=${!n}
+    for ((i=1;i < $#;i++)) {
+        if [ "${!i}" == "${value}" ]; then
+            echo "y"
+            return 0
+        fi
+    }
+    echo "n"
+    return 1
+}
+
+# Main body of code starts here
 arg=$1
+
+function showHelp {
+    echo "Options:"
+    echo "  -h --help              Show this help section"
+    echo "  -b --bash              To setup Bash config file (BashRC) WARNING: This will overwrite your current BashRC"
+    echo "  -v --vim               To setup Vim config file (VimRC) WARNING: This will overwrite your current VimRC"
+    echo "  -c --code              To install coding languages, IDE's, and helpful coding Software like git"
+    echo "  -a --all               To execute all of the above at once" 
+}
 
 if [[ "$arg" == "" ]]
 then
     echo "Are you sure you want to install all? [y/n]"
-    echo "For more details use --help"
+    echo "For more details use -h or --help"
     read resp
     echo "You have selected $resp"
     if [[ "$resp" == "y" || "$resp" == "yes" ]]
     then
         arg="--all"
-    elif [[ "$resp" == "--help" || "$resp" == "help" ]]
+    elif [[ "$resp" == "-h" || "$resp" == "--help" || "$resp" == "help" ]]
     then
-        arg="--help"
+        showHelp
+        exit 0
     elif [[ "$resp" == "n" || "$resp" == "no" ]]
     then
         echo "Ok, not installing anything..."
@@ -28,60 +53,57 @@ then
     echo "Too many args..."
     echo "Please enter 1 argument only!"
     echo "Too see a valid list of args please use: --help (./jasio_setup.sh --help)"
+    exit 1
+fi
 
-elif [[ "$arg" == "--help" ]]
+valid_args=("-b" "--bash" "-v" "--vim" "-c" "--code" "-a" "--all" "-h" "--help")
+if [ $(contains "${valid_args[@]}" == "$arg") != "y" ];
+then
+    echo "Not a valid arg..."
+    echo "Too see a valid list of commands please use: --help (./jasio_setup.sh --help)"
+    exit 1
+fi
+
+if [[ "$arg" == "--help" || "$arg" == "-h" ]]
 then 
-    echo "Help section:"
-    echo "Run valid args like this: (./jasio_setup.sh --arg)"
-    echo "To setup config files (bash, vim) use:                                        --config"
-    echo "To setup BashRC use:                                                          --bash"
-    echo "To setup VimRC use:                                                           --vim"
-    echo "To install coding languages, IDE's, and helpful coding Software like git use: --code"
-    echo "To install all above in 1 go use:                                             --all"
+    showHelp
+    exit 0
+fi
 
-else
-    if [[ "$arg" != "--bash" && "$arg" != "--vim" && "$arg" != "--code" && "$arg" != "--all" && "$arg" != "--config" ]]
-    then
-        echo "Not a valid arg..."
-        echo "Too see a valid list of commands please use: --help (./jasio_setup.sh --help)"
-    fi
+echo "Configuring machine for Jasio's setup:"
+if [[ "$arg" == "-b" || "$arg" == "-a" || "$arg" == "--bash" || "$arg" == "--all" ]]
+then
+    ### print out a message to tell user what is being added
+    echo "  Configuring BashRC (~/.bashrc)"
+    ## bash config
+    cp ./config_files/.bashrc ~/.bashrc
+    ## finished
+    ### print final message informing the user process finished
+    echo "    -Done!"
+fi
 
-    echo "Configuring machine for Jasio's setup:"
+if [[ "$arg" == "-v" || "$arg" == "-a" || "$arg" == "--vim" || "$arg" == "--all" ]]
+then
+    ### print out a message to tell user what is being added
+    echo "  Configuring VimRC (~/.vimrc)"
+    cp ./config_files/.vimrc ~/.vimrc
+    ## vim config
+    ## finished
+    ### print final message informing the user process finished
+    echo "    -Done!"
+fi
 
-    if [[ "$arg" == "--bash" || "$arg" == "--all" || "$arg" == "--config" ]]
-    then
-        ### print out a message to tell user what is being added
-        echo "  Configuring BashRC (~/.bashrc)"
-        ## bash config
-        cp ./config_files/.bashrc ~/.bashrc
-        ## finished
-        ### print final message informing the user process finished
-        echo "    -Done!"
-    fi
-
-    if [[ "$arg" == "--vim" || "$arg" == "--all" || "$arg" == "--config" ]]
-    then
-        ### print out a message to tell user what is being added
-        echo "  Configuring VimRC (~/.vimrc)"
-        cp ./config_files/.vimrc ~/.vimrc
-        ## vim config
-        ## finished
-        ### print final message informing the user process finished
-        echo "    -Done!"
-    fi
-
-    if [[ "$arg" == "--code" || "$arg" == "--all" ]]
-    then
-        echo "  Installing Software used for Programming"
-        sudo apt-get install git  # git for source control
-        sudo apt-get install python3  # python3 for python development
-        sudo apt-get install default-jdk  # java jdk for java development
-        sudo snap install pycharm-community --classic  # my main python IDE
-        sudo snap install intellij-idea-community --classic  # my main Java IDE
-        echo "  Still need to pick a decent C IDE"
-        echo "  Since I primarily develop Firmware I just use vim, build, then deploy and test on physical hardware like Arduino."
-        ## finished
-        ### print final message informing the user process finished
-        echo "    -Done!"
-    fi
+if [[ "$arg" == "-c" || "$arg" == "-a" || "$arg" == "--code" || "$arg" == "--all" ]]
+then
+    echo "  Installing Software used for Programming"
+    sudo apt-get install git  # git for source control
+    sudo apt-get install python3  # python3 for python development
+    sudo apt-get install default-jdk  # java jdk for java development
+    sudo snap install pycharm-community --classic  # my main python IDE
+    sudo snap install intellij-idea-community --classic  # my main Java IDE
+    echo "  Still need to pick a decent C IDE"
+    echo "  Since I primarily develop Firmware I just use vim, build, then deploy and test on physical hardware like Arduino."
+    ## finished
+    ### print final message informing the user process finished
+    echo "    -Done!"
 fi
