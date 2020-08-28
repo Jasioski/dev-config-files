@@ -18,6 +18,7 @@ arg=$1
 
 function showHelp {
     echo "Options:"
+    echo "  -s --config            To setup config files (bash, vim)"
     echo "  -h --help              Show this help section"
     echo "  -b --bash              To setup Bash config file (BashRC) WARNING: This will overwrite your current BashRC"
     echo "  -v --vim               To setup Vim config file (VimRC) WARNING: This will overwrite your current VimRC"
@@ -57,7 +58,7 @@ then
     exit 1
 fi
 
-valid_args=("-b" "--bash" "-v" "--vim" "-c" "--code" "-a" "--all" "-h" "--help")
+valid_args=("-b" "--bash" "-v" "--vim" "-c" "--code" "-a" "--all" "-h" "--help" "-s" "--config")
 if [ $(contains "${valid_args[@]}" == "$arg") != "y" ];
 then
     printf "Not a valid arg...\n\n"
@@ -72,7 +73,7 @@ then
 fi
 
 echo "Configuring machine for Jasio's setup:"
-if [[ "$arg" == "-b" || "$arg" == "-a" || "$arg" == "--bash" || "$arg" == "--all" ]]
+if [[ "$arg" == "-b" || "$arg" == "-a" || "$arg" == "-s" || "$arg" == "--config" || "$arg" == "--bash" || "$arg" == "--all" ]]
 then
     ### print out a message to tell user what is being added
     echo "  Configuring BashRC (~/.bashrc)"
@@ -83,7 +84,7 @@ then
     echo "    -Done!"
 fi
 
-if [[ "$arg" == "-v" || "$arg" == "-a" || "$arg" == "--vim" || "$arg" == "--all" ]]
+if [[ "$arg" == "-v" || "$arg" == "-a" || "$arg" == "-s" || "$arg" == "--config" || "$arg" == "--vim" || "$arg" == "--all" ]]
 then
     ### print out a message to tell user what is being added
     echo "  Configuring VimRC (~/.vimrc)"
