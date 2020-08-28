@@ -43,7 +43,8 @@ then
         echo "Ok, not installing anything..."
         exit 0
     else
-        echo "Not a valid response..."
+        printf "Not a valid response...\n\n"
+        showHelp
         exit 1
     fi
 fi
@@ -51,16 +52,16 @@ fi
 if [[ "$2" != "" ]]
 then
     echo "Too many args..."
-    echo "Please enter 1 argument only!"
-    echo "Too see a valid list of args please use: --help (./jasio_setup.sh --help)"
+    printf "Please enter 1 argument only!\n\n"
+    showHelp
     exit 1
 fi
 
 valid_args=("-b" "--bash" "-v" "--vim" "-c" "--code" "-a" "--all" "-h" "--help")
 if [ $(contains "${valid_args[@]}" == "$arg") != "y" ];
 then
-    echo "Not a valid arg..."
-    echo "Too see a valid list of commands please use: --help (./jasio_setup.sh --help)"
+    printf "Not a valid arg...\n\n"
+    showHelp
     exit 1
 fi
 
