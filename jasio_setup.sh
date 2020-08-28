@@ -22,7 +22,7 @@ function showHelp {
     echo "  -b --bash              To setup Bash config file (BashRC) WARNING: This will overwrite your current BashRC"
     echo "  -v --vim               To setup Vim config file (VimRC) WARNING: This will overwrite your current VimRC"
     echo "  -c --code              To install coding languages, IDE's, and helpful coding Software like git"
-    echo "  -a --all               To execute all of the above at once" 
+    echo "  -a --all               To execute all of the above at once"
 }
 
 if [[ "$arg" == "" ]]
