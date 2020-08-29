@@ -20,7 +20,7 @@ function showHelp {
     echo "Options:"
     echo "  -s --config            To setup config files (bash, vim)"
     echo "  -h --help              Show this help section"
-    echo "  -b --bash              To setup Bash config file (BashRC) WARNING: This will overwrite your current BashRC"
+    echo "  -b --bash              To setup Bash config files (BashRC and Bash_Logout) WARNING: This will overwrite your current Bash config"
     echo "  -v --vim               To setup Vim config file (VimRC) WARNING: This will overwrite your current VimRC"
     echo "  -c --code              To install coding languages, IDE's, and helpful coding Software like git"
     echo "  -a --all               To execute all of the above at once"
@@ -79,6 +79,9 @@ then
     echo "  Configuring BashRC (~/.bashrc)"
     ## bash config
     cp ./config_files/.bashrc ~/.bashrc
+    echo "  Configuring Bash_Logout (~/.bash_logout)"
+    ## bash config
+    cp ./config_files/.bash_logout ~/.bash_logout
     ## finished
     ### print final message informing the user process finished
     echo "    -Done!"

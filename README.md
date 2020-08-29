@@ -1,6 +1,6 @@
 # Dev Config Files
 
-Here are the config files I use for setting up my machine when developing Software. These include my Vim and bash config, as well as scripts I use to download all the necessary programming languages, and IDE's I generally use for development.
+Here are the config files I use for setting up my machine when developing Software. These include my Vim and Bash config, as well as scripts I use to download all the necessary programming languages, and IDE's I generally use for development.
 
 # Warning
 Most of this will work on any system, 
@@ -30,8 +30,14 @@ Configuring vim and bash **should work** on any system.
   - If you're in the same directory as the downloaded .vimrc file you can open a terminal and `cp .vimrc ~/.vimrc`.
     - Keep in mind this will completely overwrite your current vimrc so make sure you save important configurations you added earlier.
 
-### To install Bash configuration (BashRC)
+### To install Bash configuration (BashRC and Bash_Logout)
 1. Download the .bashrc file found in this repo's `config_files` directory.
 2. Copy and paste that file into your home directory.
   - If you're in the same directory as the downloaded .bashrc file you can open a terminal and `cp .bashrc ~/.bashrc`.
     - Keep in mind this will completely overwrite your current bashrc so make sure you save important configurations you added earlier.
+
+
+3. Download the .bash_logout file found in this repo's `config_files` directory.
+4. Copy and paste that file into your home directory.
+  - If you're in the same directory as the downloaded .bash_logout file you can open a terminal and `cp .bash_logout ~/.bash_logout`.
+    - Keep in mind this will completely overwrite your current bash_logout so make sure you save important configurations you added earlier.
