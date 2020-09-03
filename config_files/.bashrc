@@ -119,3 +119,6 @@ fi
 # Jasio's BashRC Addons
 ## I want ls to always use human readable list option (-l, -h)
 alias ls='ls -lh --color=auto'
+
+## Short hand for rfkill list all
+alias rfk='rfkill list all'
