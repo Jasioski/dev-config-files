@@ -29,26 +29,8 @@ function showHelp {
 
 if [[ "$arg" == "" ]]
 then
-    echo "Are you sure you want to install all? [y/n]"
-    echo "For more details use -h or --help"
-    read resp
-    echo "You have selected $resp"
-    if [[ "$resp" == "y" || "$resp" == "yes" ]]
-    then
-        arg="--all"
-    elif [[ "$resp" == "-h" || "$resp" == "--help" || "$resp" == "help" ]]
-    then
-        showHelp
-        exit 0
-    elif [[ "$resp" == "n" || "$resp" == "no" ]]
-    then
-        echo "Ok, not installing anything..."
-        exit 0
-    else
-        printf "Not a valid response...\n\n"
-        showHelp
-        exit 1
-    fi
+    showHelp
+    exit 1
 fi
 
 if [[ "$2" != "" ]]
