@@ -18,6 +18,7 @@ arg=$1
 
 function showHelp {
     echo "Options:"
+    echo " Choosing any of the valid options below will automatically install prerequesite software curl and wget"
     echo "  -s --config            To setup config files (bash, vim)"
     echo "  -h --help              Show this help section"
     echo "  -b --bash              To setup Bash config files (BashRC and Bash_Logout) WARNING: This will overwrite your current Bash config"
@@ -73,10 +74,30 @@ then
 fi
 
 echo "Configuring machine for Jasio's setup:"
+
+# install prerequesites curl and wget
+sudo apt install curl
+sudo apt install wget
+
 if [[ "$arg" == "-b" || "$arg" == "-a" || "$arg" == "-s" || "$arg" == "--config" || "$arg" == "--bash" || "$arg" == "--all" ]]
 then
     ### print out a message to tell user what is being added
     echo "  Configuring BashRC (~/.bashrc)"
+
+    if [ ! -d ./config_files ]
+        then
+            mkdir config_files
+    fi
+    if [ ! -f ./config_files/.bash_logout ]
+        then
+            wget "https://raw.githubusercontent.com/Jasioski/dev-config-files/master/config_files/.bash_logout"
+            mv ./.bash_logout ./config_files/.bash_logout
+    fi
+    if [ ! -f ./config_files/.bashrc ]
+        then
+            wget "https://raw.githubusercontent.com/Jasioski/dev-config-files/master/config_files/.bashrc"
+            mv ./.bashrc ./config_files/.bashrc
+    fi
     ## bash config
     cp ./config_files/.bashrc ~/.bashrc
     echo "  Configuring Bash_Logout (~/.bash_logout)"
@@ -91,6 +112,15 @@ if [[ "$arg" == "-v" || "$arg" == "-a" || "$arg" == "-s" || "$arg" == "--config"
 then
     ### print out a message to tell user what is being added
     echo "  Configuring VimRC (~/.vimrc)"
+    if [ ! -f ./config_files/.vimrc ]
+        then
+        if [ ! -d ./config_files ]
+            then
+                mkdir config_files
+        fi
+        wget "https://raw.githubusercontent.com/Jasioski/dev-config-files/master/config_files/.vimrc"
+        mv ./.vimrc ./config_files/.vimrc
+    fi
     cp ./config_files/.vimrc ~/.vimrc
     ## vim config
     ## finished
