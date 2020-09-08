@@ -19,12 +19,12 @@ arg=$1
 function showHelp {
     echo "Options:"
     echo " Choosing any of the valid options below will automatically install prerequesite software curl and wget"
-    echo "  -s --config            To setup config files (bash, vim)"
-    echo "  -h --help              Show this help section"
-    echo "  -b --bash              To setup Bash config files (BashRC and Bash_Logout) WARNING: This will overwrite your current Bash config"
-    echo "  -v --vim               To setup Vim config file (VimRC) WARNING: This will overwrite your current VimRC"
-    echo "  -c --code              To install coding languages, IDE's, and helpful coding Software like git"
-    echo "  -a --all               To execute all of the above at once"
+    echo "  -s, --config            To setup config files (bash, vim)"
+    echo "  -h, --help              Show this help section"
+    echo "  -b, --bash              To setup Bash config files (BashRC and Bash_Logout) WARNING: This will overwrite your current Bash config"
+    echo "  -v, --vim               To setup Vim config file (VimRC) WARNING: This will overwrite your current VimRC"
+    echo "  -c, --code              To install coding languages, IDE's, and helpful coding Software like git"
+    echo "  -a, --all               To execute all of the above at once"
 }
 
 if [[ "$arg" == "" ]]
