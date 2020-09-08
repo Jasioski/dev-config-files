@@ -12,9 +12,10 @@ If your system does not have the apt package manager or snap installed, feel fre
 Configuring vim and bash **should work** on any system.
 
 ## To Install Configuration and Development programs
-1. Download this repository in any directory of your choice.
-2. Once downloaded, enter into this project: `cd dev-config-files`
-3. Run the shell script `./jasio_setup.sh`.
+1. Save the setup script from this repository `jasio_setup.sh` into any directory of your choice.
+2. Once saved, open a terminal and navigate to the directory the setup file is saved in
+  - For example, if you downloaded the file into a temp directory in your home folder `~/temp/jasio_setup.sh`, in a terminal use cd to navigate to that folder `cd ~/temp`
+3. Run the shell script `bash jasio_setup.sh` or `./jasio_setup.sh`.
   - **If this script failed to run, it's most likely do to your permission settings**
     - Running `chmod u+x jasio_setup.sh` in your terminal should solve the issue.
   - This script has multiple options that can be set using args `- or --`
