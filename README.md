@@ -16,7 +16,7 @@ Configuring vim and bash **should work** on any system.
 2. Once saved, open a terminal and navigate to the directory the setup file is saved in
   - For example, if you downloaded the file into a temp directory in your home folder `~/temp/jasio_setup.sh`, in a terminal use cd to navigate to that folder `cd ~/temp`
 3. Run the shell script `bash jasio_setup.sh` or `./jasio_setup.sh`.
-  - **If this script failed to run, it's most likely do to your permission settings**
+  - **If this script failed to run, it's most likely due to your permission settings**
     - Running `chmod u+x jasio_setup.sh` in your terminal should solve the issue.
   - This script has multiple options that can be set using args `- or --`
     - To install everything (configurations, programming languages, and corresponding IDE's), run `./jasio_setup.sh -a or --all`.
