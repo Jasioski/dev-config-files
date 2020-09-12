@@ -18,11 +18,13 @@ arg=$1
 
 function showHelp {
     echo "Options:"
-    echo " Choosing any of the valid options below will automatically install prerequesite software curl, wget, ctags, and snap package manager"
+    echo " Choosing any of the valid options below will automatically install prerequesite software: curl, wget, and ctags"
     echo "  -s, --config            To setup config files (bash, vim)"
     echo "  -h, --help              Show this help section"
     echo "  -b, --bash              To setup Bash config files (BashRC and Bash_Logout) WARNING: This will overwrite your current Bash config"
     echo "  -v, --vim               To setup Vim config file (VimRC) WARNING: This will overwrite your current VimRC"
+    echo ""
+    echo " Choosing any of the options below will automatically install prerequesite software: snap package manager"
     echo "  -c, --code              To install coding languages, IDE's, and helpful coding Software like git"
     echo "  -a, --all               To execute all of the above at once"
 }
@@ -62,7 +64,6 @@ sudo apt update
 sudo apt install ctags
 sudo apt install -y curl
 sudo apt install -y wget
-sudo apt install -y snapd
 
 if [[ "$arg" == "-b" || "$arg" == "-a" || "$arg" == "-s" || "$arg" == "--config" || "$arg" == "--bash" || "$arg" == "--all" ]]
 then
@@ -119,6 +120,7 @@ then
     sudo apt-get install git  # git for source control
     sudo apt-get install python3  # python3 for python development
     sudo apt-get install default-jdk  # java jdk for java development
+    sudo apt install -y snapd # install snap package manager when necessary
     sudo snap install pycharm-community --classic  # my main python IDE
     sudo snap install intellij-idea-community --classic  # my main Java IDE
     echo "  Still need to pick a decent C IDE"
