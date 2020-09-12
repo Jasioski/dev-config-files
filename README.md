@@ -7,7 +7,7 @@ Most of this will work on any system,
 however the `jasio_setup.sh` script was developed with Debian based Linux distributions in mind.
 
 The part of the script responsible for installing programs makes use of the apt package manager and snap.
-If your system does not have the apt package manager or snap installed, feel free to install the development programs manually.
+If your system does not have the apt package manager, feel free to install the development programs manually.
 
 Configuring vim and bash **should work** on any system.
 
@@ -42,3 +42,9 @@ Configuring vim and bash **should work** on any system.
 4. Copy and paste that file into your home directory.
   - If you're in the same directory as the downloaded .bash_logout file you can open a terminal and `cp .bash_logout ~/.bash_logout`.
     - Keep in mind this will completely overwrite your current bash_logout so make sure you save important configurations you added earlier.
+
+## Notes
+### Config Files
+VimRC
+  - The .vimrc script makes use of ctags and in the .vimrc file on line 75, it looks at projects in the ~/Documents/git directory.
+    - Change this path to whatever directory you have as the root directory of your projects.
