@@ -65,3 +65,11 @@ autocmd FileType html,css set noexpandtab tabstop=2
 " needed, and have indentation at 8 chars to be sure that all indents are tabs
 " (despite the mappings earlier):
 autocmd FileType make set noexpandtab shiftwidth=8
+
+" bind ctag to ctrl + ]
+" open ctag in new window
+nnoremap <C-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
+" I usually do my development in a directory called git located in HOME/Documents
+" This is specific to me, you may need to change this to your main development directory
+set tags+=$HOME/Documents/git/
