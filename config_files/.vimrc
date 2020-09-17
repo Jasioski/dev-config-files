@@ -30,7 +30,7 @@ com! DiffSaved call s:DiffWithSaved()
 inoremap <C-k> <Esc>O<Esc>jA
 
 " (Normal Mode) Press Esc twice to clear search highlights
-nnoremap <esc><esc> :noh
+nnoremap <Esc><Esc> :noh
 
 "" Delete remaps
 " (Insert Mode) Use ctrl+d then let go, then press left arrow to delete word to left of cursor
