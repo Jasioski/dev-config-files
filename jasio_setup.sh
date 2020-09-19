@@ -23,10 +23,12 @@ function showHelp {
     echo "  -h, --help              Show this help section"
     echo "  -b, --bash              To setup Bash config files (BashRC and Bash_Logout) WARNING: This will overwrite your current Bash config"
     echo "  -v, --vim               To setup Vim config file (VimRC) WARNING: This will overwrite your current VimRC"
+    echo "  -i, --i3                To setup my i3 config (only use this if you use i3 window manager)"
+    echo "  -h, --help              Show this help section"
     echo ""
     echo " Choosing any of the options below will automatically install prerequesite software: snap package manager"
     echo "  -c, --code              To install coding languages, IDE's, and helpful coding Software like git"
-    echo "  -a, --all               To execute all of the above at once"
+    echo "  -a, --all               To execute all of the above except for i3"
 }
 
 if [[ "$arg" == "" ]]
@@ -43,7 +45,7 @@ then
     exit 1
 fi
 
-valid_args=("-b" "--bash" "-v" "--vim" "-c" "--code" "-a" "--all" "-h" "--help" "-s" "--config")
+valid_args=("-b" "--bash" "-v" "--vim" "-i" "--i3" "-c" "--code" "-a" "--all" "-h" "--help" "-s" "--config")
 if [ $(contains "${valid_args[@]}" == "$arg") != "y" ];
 then
     printf "Not a valid arg...\n\n"
@@ -64,6 +66,31 @@ sudo apt update
 sudo apt install ctags
 sudo apt install -y curl
 sudo apt install -y wget
+
+if [[ "$arg" == "-i" || "$arg" == "--i3" ]]
+then
+    ### print out a message to tell user what is being added
+    sudo apt install i3
+    echo "  Configuring i3"
+    ### configure general i3
+    if [ -d ~/.i3 ]
+        then
+            sudo cp ./config_files/config ~/.i3/config
+    elif [ -d ~/.config/i3 ]
+        then
+            sudo cp ./config_files/config ~/.config/i3/config
+    else
+        echo "  Can't find i3 config folder. Something went wrong..."
+        exit 1
+    fi
+    ### configure i3 bar
+    echo "  Installing pavucontrol for i3bar volume display"
+    sudo apt install pavucontrol -y
+    echo "  Installing i3blocks for i3bar"
+    sudo apt install i3blocks -y
+    sudo cp ./config_files/i3blocks.conf /etc/i3blocks.conf
+    echo "    -Done!"
+fi
 
 if [[ "$arg" == "-b" || "$arg" == "-a" || "$arg" == "-s" || "$arg" == "--config" || "$arg" == "--bash" || "$arg" == "--all" ]]
 then
