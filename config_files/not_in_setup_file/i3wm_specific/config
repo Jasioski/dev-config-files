@@ -49,6 +49,9 @@ bindsym $mod+Return exec urxvt
 # start the system monitor
 bindsym $mod+m exec gnome-system-monitor
 
+# start the system monitor
+bindsym $mod+Shift+a exec pavucontrol
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -178,9 +181,9 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-# change the path to any image you want as your desktop wallpaper
-exec_always feh --bg-scale ~/Pictures/terraCollideEpic.jpg
-# exec_always feh --bg-scale ~/Pictures/saturnEpic.jpg
+# script that changes desktop bg every 5 mins
+exec desktop_bg_swap.sh 5m
+
 
 # Show caps lock in status bar
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks 
