@@ -66,6 +66,10 @@ autocmd FileType html,css set noexpandtab tabstop=2
 " (despite the mappings earlier):
 autocmd FileType make set noexpandtab shiftwidth=8
 
+" delete trailing whitespace in specific files
+" some file formats require trailing whitespace so don't do this for all files
+autocmd FileType c,cpp,java,php,html,perl,css,py,sh autocmd BufWritePre <buffer> %s/\s\+$//e
+
 " bind ctag to ctrl + ]
 " open ctag in new window
 nnoremap <C-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>

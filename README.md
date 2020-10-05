@@ -3,8 +3,7 @@
 Here are the config files I use for setting up my machine when developing Software. These include my Vim and Bash config, as well as scripts I use to download all the necessary programming languages, and IDE's I generally use for development.
 
 # Warning
-Most of this will work on any system, 
-however the `jasio_setup.sh` script was developed with Debian based Linux distributions in mind.
+`jasio_setup.sh` script was developed with Debian based Linux distributions in mind.
 
 The part of the script responsible for installing programs makes use of the apt package manager and snap.
 If your system does not have the apt package manager, feel free to install the development programs manually.
