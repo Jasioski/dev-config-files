@@ -122,3 +122,9 @@ alias ls='ls -lh --color=auto'
 
 ## Short hand for rfkill list all
 alias rfk='rfkill list all'
+
+## Shortcut to generate ctags
+alias gen_tag='ctags -R -V *'
+
+# Set vim as default editor
+export EDITOR="/usr/bin/vim"
