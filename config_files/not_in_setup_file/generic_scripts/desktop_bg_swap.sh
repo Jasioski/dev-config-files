@@ -14,7 +14,7 @@ fi
 
 while :
 do
-    for file in /home/jasio/Pictures/wallpapers/*;
+    for file in /home/$USER/Pictures/wallpapers/*;
     do
         feh --bg-scale $file;
         sleep $arg;
