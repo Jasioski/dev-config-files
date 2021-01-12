@@ -3,12 +3,22 @@
 Here are the config files I use for setting up my machine when developing Software. These include my Vim and Bash config, as well as scripts I use to download all the necessary programming languages, and IDE's I generally use for development.
 
 # Warning
-`jasio_setup.sh` script was developed with Debian based Linux distributions in mind.
+`jasio_setup.sh` script was developed with Debian/Ubuntu based Linux distributions in mind.
 
 The part of the script responsible for installing programs makes use of the apt package manager and snap.
 If your system does not have the apt package manager, feel free to install the development programs manually.
 
 Configuring vim and bash **should work** on any system.
+
+# IDE's
+I use the following:
+* neovim - (typescript/javascript, html, css, C, C++, Elixir)
+  - Not in setup script due to some plugins needing later versions of neovim.
+  - If you wish to use my neovim config, please download my config from [here](https://gitlab.com/Jasioski/dev-config-files/-/blob/master/config_files/not_in_setup_file/nvim/init.vim) and manually copy paste this file into your `init.vim` configuration script.
+* PyCharm - (Python)
+* Intellij - (Java)
+
+
 
 ## To Install Configuration and Development programs
 1. Save the setup script from this repository `jasio_setup.sh` into any directory of your choice.
