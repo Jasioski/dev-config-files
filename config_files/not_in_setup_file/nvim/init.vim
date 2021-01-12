@@ -1,5 +1,5 @@
 " Default setup for stuff
-" vim-bootstrap 2020-11-27 06:51:54
+" vim-bootstrap 2020-11-27 06:51:54 with some additions from Jasioski
 
 "*****************************************************************************
 "" Vim-Plug core
