@@ -675,3 +675,6 @@ com! DiffSaved call s:DiffWithSaved()
 " delete trailing whitespace in specific files
 " some file formats require trailing whitespace so don't do this for all files
 autocmd FileType c,cpp,java,php,html,perl,css,py,sh,ts,tsx,js autocmd BufWritePre <buffer> %s/\s\+$//e
+
+vnoremap (( "sc(<C-r>s)<Esc>
+vnoremap "" "sc"<C-r>s"<Esc>
