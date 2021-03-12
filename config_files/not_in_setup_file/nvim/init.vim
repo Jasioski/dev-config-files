@@ -52,6 +52,8 @@ Plug 'Yggdroot/indentLine'
 Plug 'editor-bootstrap/vim-bootstrap-updater'
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 
 " coc config
 let g:coc_global_extensions = [
