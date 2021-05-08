@@ -680,3 +680,7 @@ autocmd FileType c,cpp,java,php,html,perl,css,py,sh,ts,tsx,js autocmd BufWritePr
 
 vnoremap (( "sc(<C-r>s)<Esc>
 vnoremap "" "sc"<C-r>s"<Esc>
+
+" bind ctag to ctrl + ]
+" open ctag in new window
+nnoremap <C-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
