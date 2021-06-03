@@ -683,7 +683,7 @@ vnoremap "" "sc"<C-r>s"<Esc>
 
 " bind ctag to ctrl + ]
 " open ctag in new window
-nnoremap <C-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+nnoremap <C-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>zz
 
 " show hidden files (like dotfiles or pipeline configs) by default
 " you can toggle this by pressing `shift+i` while nerdtree is open
