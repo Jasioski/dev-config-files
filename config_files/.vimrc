@@ -77,3 +77,15 @@ nnoremap <C-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 " I usually do my development in a directory called git located in HOME/Documents
 " This is specific to me, you may need to change this to your main development directory
 set tags+=$HOME/Documents/git/
+
+" Works for {} delimeted function languages like C
+" Show function name in status bar when ctrl+g is pressed
+function! ShowFuncName()
+  let lnum = line(".")
+  let col = col(".")
+  echohl ModeMsg
+  echo getline(search("^[^ \t#/]\\{2}.*[^:]\s*$", 'bW'))
+  echohl None
+  call search("\\%" . lnum . "l" . "\\%" . col . "c")
+endfun
+map <C-g> :call ShowFuncName() <CR>

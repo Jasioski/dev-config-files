@@ -688,3 +688,15 @@ nnoremap <C-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>zz
 " show hidden files (like dotfiles or pipeline configs) by default
 " you can toggle this by pressing `shift+i` while nerdtree is open
 let NERDTreeShowHidden=1
+
+" Works for {} delimeted function languages like C
+" Show function name in status bar when ctrl+g is pressed
+function! ShowFuncName()
+  let lnum = line(".")
+  let col = col(".")
+  echohl ModeMsg
+  echo getline(search("^[^ \t#/]\\{2}.*[^:]\s*$", 'bW'))
+  echohl None
+  call search("\\%" . lnum . "l" . "\\%" . col . "c")
+endfun
+map <C-g> :call ShowFuncName() <CR>
